@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Canvas Project</title>        
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS Libraries-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="styles/global.css">
+		<link rel="stylesheet" href="styles/main.css">
+		<link rel="stylesheet" href="styles/tool-settings.css">
+		<link rel="stylesheet" href="styles/admin-tools.css">
+		<link rel="stylesheet" href="styles/mobile-responsive.css">
+		<link href="https://fonts.googleapis.com/css?family=Metrophobic" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="menuOpen"><img class="img-responsive" src="images/palette.png"></div>
+		<div id="menu" class="mobileHidden">
+			<!--Main Tools-->
+			<div id="toolsMenu">
+				<div class="mobileShow">
+					<div class="toolsDropdownButton inactive"><img class="img-responsive" src="images/pencil.png"></div>
+					<div class="filtersDropdownButton inactive"><img class="img-responsive" src="images/themes.png"></div>
+				</div>
+				<div class="toolsDropdown mobileHidden">
+					<div class="toolButton pencilButton active"><img class="img-responsive" src="images/pencil.png"></div>
+					<div class="toolButton eraserButton"><img class="img-responsive" src="images/eraser.png"></div>
+					<div class="toolButton textButton"><img class="img-responsive" src="images/text.png"></div>
+					<div class="toolButton lineButton"><img class="img-responsive" src="images/line.png"></div>
+					<div class="toolButton circleButton"><img class="img-responsive" src="images/circle.png"></div>
+					<div class="toolButton rectangleButton"><img class="img-responsive" src="images/rectangle.png"></div></div>
+			</div>
+			
+			<hr class="mobileHidden">
+			<!--Text Tools-->
+			<div id="textOptions">
+				<div class="textSizeContainer">
+					<div class="showTextSize">17</div>
+					<div class="textSizeSlider"><input type="range" min="8" max="50" value="17" step="1" class="slider" id="textSize"></div>
+				</div>
+				<select id="textFont" name="text Font" onchange="canvasSettings.changeText()">
+					<option> Arial </option>
+					<option> Metrophobic </option>
+					<option> Tahoma </option>
+					<option> Verdana </option>
+				</select>
+				<hr class="mobileHidden">
+			</div>
+
+			<!--Color Palette-->
+			<div id="colorPalette">
+				<p class="mobileHidden">Stroke</p>
+				<input type="button" class="jscolor colorButton" value="#000000" onchange="canvasSettings.changeStroke(this.jscolor)" id="colorStroke"></input>
+				<p class="mobileHidden">Fill</p>
+				<input type="button" class="jscolor colorButton" value="#ffffff" onchange="canvasSettings.changeFill(this.jscolor)" id="colorFill"></input>
+			</div>
+			<!--Admin Functions-->
+			<div id="adminFunctions">
+					<div id="undoRedoGroup">
+						<div class="btn undo"><img class="img-responsive" src="images/undo.png"></div>
+						<div class="btn redo"><img class="img-responsive" src="images/redo.png"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Canvas Section-->
+		<div id="canvasContainer">
+			<canvas id="canvas-real" class="canvas"></canvas>
+			<canvas id="canvas-draft" class="canvas"></canvas>
+			<input id="textInput" name="inputField" value=""></input>
+		</div>
+
+        <!--Javascript Libraries-->
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+		<script src="scripts/jscolor.min.js"></script>
+		
+		<!--Mother Script-->
+		<script src="scripts/canvas-common.js"></script> 
+		<script src="scripts/undo.js"></script>
+
+		<!--Functions Scripts-->
+		<script src="scripts/drawing-bezier.js"></script>
+		<script src="scripts/drawing-line.js"></script>
+		<script src="scripts/drawing-rectangle.js"></script>
+		<script src="scripts/drawing-ellipse.js"></script>
+		<script src="scripts/drawing-eraser.js"></script>
+		<script src="scripts/drawing-text.js"></script>
+		<script src="scripts/find-color.js"></script>
+		<script src="scripts/open-file.js"></script>
+
+		<!--Control Scripts-->
+		<script src="scripts/canvas-configuration.js"></script> <!--Testing this script-->
+		<script src="scripts/drawing-filter.js"></script>
+		<script src="scripts/canvas-save.js"></script>
+		<script src="scripts/drawing-clear.js"></script>
+
+		<script type='text/javascript'>    
+			//Initialize Canvas 
+			currentFunction = new DrawingBezier(contextReal,contextDraft);
+			canvasReal.width = parseInt($("#canvasContainer").css("width").replace("px",""));
+			canvasReal.height = parseInt($("#canvasContainer").css("height").replace("px",""));
+			canvasDraft.width = parseInt($("#canvasContainer").css("width").replace("px",""));
+			canvasDraft.height = parseInt($("#canvasContainer").css("height").replace("px",""));
+			//Initialize canvas with white background
+			contextReal.fillStyle = "white";
+			contextReal.fillRect(0, 0, canvasReal.width, canvasReal.height);
+			//Initialize blank canvas as undoObject's first state
+			canvasSettings.undoObject.states[canvasSettings.undoObject.actionCount] = new Image();
+			canvasSettings.undoObject.states[canvasSettings.undoObject.actionCount].src = canvasReal.toDataURL();
+			canvasSettings.undoObject.actionCount++;
+
+		</script>
+	</body>
+</html>

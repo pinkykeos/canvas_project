@@ -1,0 +1,92 @@
+/*-------------------Menu styles-------------------*/
+#menu {
+	position: fixed;
+	width: 114px;
+	height: 100%;
+	border-right: 1px solid black;
+	background: rgb(29, 41, 65);
+	z-index: 10;
+}
+.menuOpen {
+	position: absolute;
+	margin: 5px 0 0 5px;
+	padding: 5px;
+	border-radius: 20%;
+	background: rgb(204,204,204);
+	height: 50px;
+	width: 50px;
+	display: none;
+	z-index: 15;
+}
+/*Inactive toolbar on desktop mode section*/
+.inactive {
+	background: rgb(200,200,200);
+	margin: 5px 0 0 5px;
+	padding: 5px;
+	border-radius: 20%;
+	height: 33px;
+	width: 33px;
+	display: none;
+}
+/*Tools*/
+#toolsMenu {
+	width: 100%;
+	display: flex;
+	flex-wrap:wrap;
+}
+.toolsDropdown {
+	width: 100%;
+	padding-top: 10px;
+	display: flex;
+	flex-wrap:wrap;
+}
+.toolButton {
+	background: rgb(200,200,200);
+	margin: 2px;
+	padding: 5px;
+	border-radius: 20%;
+	height: 33px;
+	width: 33px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.toolButton:hover {
+	background: rgba(255,255,255,1);
+	transition: all 0.2s;
+}
+.toolButton:active {
+	background: rgba(255,255,255,1);
+}
+.active {
+	background: rgba(255,255,255,1);
+	border: 1px solid rgb(0,191,255);
+}
+/*Filter tools styles*/
+.filtersDropdown {
+	width: 100%;
+	margin-top: 10px;
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: space-around;
+}
+/*-------------------Canvas styles-------------------*/
+canvas {
+	position: absolute;
+}
+#canvasContainer {
+	min-height: 100%;
+	min-width: 100%;
+	overflow: hidden;
+	-webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+	touch-action: none;
+	-ms-touch-action:none;
+	-webkit-touch-action:none;
+}
+#canvas-real, #canvas-draft {
+}
