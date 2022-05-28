@@ -21,9 +21,6 @@ var canvasSettings = {
     eraserButton: DrawingEraser,
     textButton: DrawingText,
     downloadButton: download,
-    //Admin Functions 
-    downloadCanvas : function(){},
-    clearCanvas: function(){},
     //Undo Function Object
     undoObject: {
         actionCount: 0,
