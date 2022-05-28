@@ -51,8 +51,13 @@ class DrawingEllipse extends PaintFunction{
     this.contextReal.fill();
     this.contextReal.strokeStyle = "#4DC788";
     this.contextReal.stroke();
-    push(); //for redo/ undo
+    this.onFinish();
   }
   onMouseLeave() {}
   onMouseEnter() {}
+  onFinish(){
+    canvasSettings.undoObject.states[canvasSettings.undoObject.actionCount] = new Image();
+    canvasSettings.undoObject.states[canvasSettings.undoObject.actionCount].src = canvasReal.toDataURL();
+    canvasSettings.undoObject.actionCount++;
+}
 }

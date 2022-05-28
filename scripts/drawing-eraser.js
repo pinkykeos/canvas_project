@@ -5,7 +5,6 @@ class DrawingEraser extends PaintFunction{
     }
     
     onMouseDown(coord,event){
-        //this.context.globalCompositeOperation="destination-out";
         this.context.strokeStyle = "white";
         this.context.lineJoin = "round";
         this.context.lineCap = "round"; //lineCap = "butt" or "round"

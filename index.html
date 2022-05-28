@@ -7,11 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--CSS Libraries-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-		<link rel="stylesheet" href="styles/global.css">
-		<link rel="stylesheet" href="styles/main.css">
-		<link rel="stylesheet" href="styles/tool-settings.css">
-		<link rel="stylesheet" href="styles/admin-tools.css">
-		<link rel="stylesheet" href="styles/mobile-responsive.css">
+		<link rel="stylesheet" href="styles/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Metrophobic" rel="stylesheet">
 	</head>
 
@@ -27,10 +23,15 @@
 				<div class="toolsDropdown mobileHidden">
 					<div class="toolButton pencilButton active"><img class="img-responsive" src="images/pencil.png"></div>
 					<div class="toolButton eraserButton"><img class="img-responsive" src="images/eraser.png"></div>
+					<div class="toolButton clearButton"><img class="img-responsive" src="images/clear.png"></div>
 					<div class="toolButton textButton"><img class="img-responsive" src="images/text.png"></div>
 					<div class="toolButton lineButton"><img class="img-responsive" src="images/line.png"></div>
 					<div class="toolButton circleButton"><img class="img-responsive" src="images/circle.png"></div>
-					<div class="toolButton rectangleButton"><img class="img-responsive" src="images/rectangle.png"></div></div>
+					<div class="toolButton rectangleButton"><img class="img-responsive" src="images/rectangle.png"></div>
+					<div class="toolButton triangleButton"><img class="img-responsive" src="images/triangle.png"></div>
+					<div class="btn undo"><img class="img-responsive" src="images/undo.png"></div>
+					<div class="btn redo"><img class="img-responsive" src="images/redo.png"></div>
+					<div class="toolButton downloadButton"><img class="img-responsive" src="images/download.png"></div>
 			</div>
 			
 			<hr class="mobileHidden">
@@ -40,12 +41,6 @@
 					<div class="showTextSize">17</div>
 					<div class="textSizeSlider"><input type="range" min="8" max="50" value="17" step="1" class="slider" id="textSize"></div>
 				</div>
-				<select id="textFont" name="text Font" onchange="canvasSettings.changeText()">
-					<option> Arial </option>
-					<option> Metrophobic </option>
-					<option> Tahoma </option>
-					<option> Verdana </option>
-				</select>
 				<hr class="mobileHidden">
 			</div>
 
@@ -56,13 +51,6 @@
 				<p class="mobileHidden">Fill</p>
 				<input type="button" class="jscolor colorButton" value="#ffffff" onchange="canvasSettings.changeFill(this.jscolor)" id="colorFill"></input>
 			</div>
-			<!--Admin Functions-->
-			<div id="adminFunctions">
-					<div id="undoRedoGroup">
-						<div class="btn undo"><img class="img-responsive" src="images/undo.png"></div>
-						<div class="btn redo"><img class="img-responsive" src="images/redo.png"></div>
-					</div>
-				</div>
 			</div>
 		</div>
 
@@ -88,15 +76,17 @@
 		<script src="scripts/drawing-line.js"></script>
 		<script src="scripts/drawing-rectangle.js"></script>
 		<script src="scripts/drawing-ellipse.js"></script>
+		<script src="scripts/drawing-triangle.js"></script>
 		<script src="scripts/drawing-eraser.js"></script>
 		<script src="scripts/drawing-text.js"></script>
 		<script src="scripts/find-color.js"></script>
 		<script src="scripts/open-file.js"></script>
+		<script src="scripts/clear.js"></script>
+		<script src="scripts/download.js"></script>
 
 		<!--Control Scripts-->
 		<script src="scripts/canvas-configuration.js"></script> <!--Testing this script-->
 		<script src="scripts/drawing-filter.js"></script>
-		<script src="scripts/canvas-save.js"></script>
 		<script src="scripts/drawing-clear.js"></script>
 
 		<script type='text/javascript'>    

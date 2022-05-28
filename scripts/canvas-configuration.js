@@ -9,15 +9,17 @@ var canvasSettings = {
     //Setting Functions
     changeStroke: function(jscolor){canvasSettings.colorStroke = "#"+jscolor;},
     changeFill: function(jscolor){canvasSettings.colorFill = "#"+jscolor;},
-    changeText: function(){canvasSettings.textFont=$('#textFont').val();$('#textFont').css('font-family',$('#textFont').val());$('.showTextSize').css('font-family',$('#textFont').val());},
+
     //Tool Functions
     pencilButton: DrawingBezier,
     lineButton: DrawingLine,
     rectangleButton: DrawingRectangle,
     circleButton: DrawingEllipse,
+    triangleButton: DrawingTriangle,
+    clearButton: clear,
     eraserButton: DrawingEraser,
-    findColorButton: FindColor,
     textButton: DrawingText,
+    downloadButton: download,
     //Canvas Filter
     filterImage: function(){},
     //Admin Functions 
@@ -53,14 +55,6 @@ var canvasSettings = {
 
 document.onkeydown = canvasSettings.keyPress;
 
-//Change text size
-$("#textSize")[0].oninput = function() {
-    canvasSettings.textSize = this.value;
-    //Change visual
-    $('.showTextSize').css("font-size",this.value+"px");
-    $(".showTextSize").html(this.value);
-}
-
 //Change Tool
 $('body').on("click",".toolButton", function(){
     //Bug fix
@@ -80,8 +74,6 @@ $('body').on("click",".toolButton", function(){
     else {
         $('#textOptions').slideUp();//.css("display","none");
     }
-    //User experience for Mobile:
-    $('.toolsDropdownButton').html($('.active').html());
 });
 $(window).resize(function(){
     $('#textOptions').css("display","none");
@@ -91,88 +83,3 @@ canvasSettings.clearText = function(){
     $('#textInput').css({"display":"none","transform":"translateY(0) translateX(0)"});
     $('#textInput').val('');
 }
-//Mobile Version
-$('body').on('click','.toolsDropdownButton',function(){
-    $('.adminDropdown').addClass('mobileHidden');
-    $('.filtersDropdown').addClass('mobileHidden');
-    //$('.sizeSlider').addClass('mobileHidden');
-    $('.toolsDropdown').toggleClass('mobileHidden');
-})
-$('body').on('click','.filtersDropdownButton',function(){
-    $('.adminDropdown').addClass('mobileHidden');
-    $('.toolsDropdown').addClass('mobileHidden');
-    //$('.sizeSlider').addClass('mobileHidden');
-    $('.filtersDropdown').toggleClass('mobileHidden');
-})
-$('body').on('click','.adminDropdownButton',function(){
-    //$('.sizeSlider').addClass('mobileHidden');
-    $('.toolsDropdown').addClass('mobileHidden');
-    $('.filtersDropdown').addClass('mobileHidden');
-    $('.adminDropdown').toggleClass('mobileHidden');
-})
-$('body').on('click','.menuOpen',function(){
-    $('#menu').removeClass('mobileHidden');
-    $('.menuOpen').addClass('mobileHidden');
-})
-$('body').on('click','.menuClose',function(){
-    $('#menu').addClass('mobileHidden');
-    $('.menuOpen').removeClass('mobileHidden');
-})
-
-//Features disabled on iOS
-if( /webOS|iPhone|iPad|iPod/i.test(navigator.userAgent) === false ) {
-    $('body').on('click','.showSize',function(){
-        $('.adminDropdown').addClass('mobileHidden');
-        $('.toolsDropdown').addClass('mobileHidden');
-        $('.filtersDropdown').addClass('mobileHidden');
-        if(/mobileHidden/.test($('.sizeSlider').attr("class"))==true){
-            $('.sizeSlider').removeClass('mobileHidden');
-        }
-        else if(/mobileHidden/.test($('.sizeSlider').attr("class"))==false){
-            $('.sizeSlider').addClass('mobileHidden');
-        }
-    });
-    $('body').on('click','.toolsDropdownButton',function(){
-        $('.sizeSlider').addClass('mobileHidden');
-    })
-    $('body').on('click','.adminDropdownButton',function(){
-        $('.sizeSlider').addClass('mobileHidden');
-    })
-    $('body').on('click','.filtersDropdownButton',function(){
-        $('.sizeSlider').addClass('mobileHidden');
-    })
-}
-/*
-$(window).resize(function(){
-    if( /webOS|iPhone|iPad|iPod/i.test(navigator.userAgent) === false ) {
-        $('body').on('click','.showSize',function(){
-            $('.adminDropdown').addClass('mobileHidden');
-            $('.toolsDropdown').addClass('mobileHidden');
-            $('.sizeSlider').removeClass('mobileHidden');
-        });
-        $('body').on('click','.toolsDropdownButton',function(){
-            $('.sizeSlider').addClass('mobileHidden');
-        })
-        $('body').on('click','.adminDropdownButton',function(){
-            $('.sizeSlider').addClass('mobileHidden');
-        })
-    }
-});*/
-
-//Keep canvas on resize
-$(window).resize(function(){
-	if($(window).width()>300){
-		var tempCanvas = document.createElement('canvas');
-		var tempContext = tempCanvas.getContext('2d');
-		tempCanvas.width = canvasReal.width;
-		tempCanvas.height = canvasReal.height;
-		tempContext.drawImage(canvasReal,0,0);
-		canvasReal.width = parseInt($("#canvasContainer").css("width").replace("px",""));
-		canvasReal.height = parseInt($("#canvasContainer").css("height").replace("px",""));
-		canvasDraft.width = parseInt($("#canvasContainer").css("width").replace("px",""));
-		canvasDraft.height = parseInt($("#canvasContainer").css("height").replace("px",""));
-		contextReal.fillStyle = "white";
-		contextReal.fillRect(0, 0, canvasReal.width, canvasReal.height);
-		contextReal.drawImage(tempCanvas,0,0);
-	}
-});
