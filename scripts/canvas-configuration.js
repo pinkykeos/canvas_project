@@ -68,12 +68,7 @@ $('body').on("click",".toolButton", function(){
     $('.toolButton').removeClass("active");
     $(this).addClass("active");
     //Shows textbox options if text tool is active
-    if(/textButton/.test($('.active')[0].className)){
-        $('#textOptions').slideDown().css("display","flex");
-    }
-    else {
-        $('#textOptions').slideUp();//.css("display","none");
-    }
+ 
 });
 $(window).resize(function(){
     $('#textOptions').css("display","none");
