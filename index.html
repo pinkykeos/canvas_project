@@ -5,21 +5,15 @@
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--CSS Libraries-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 		<link rel="stylesheet" href="styles/style.css">
-		<link href="https://fonts.googleapis.com/css?family=Metrophobic" rel="stylesheet">
 	</head>
 
 	<body>
-		<div class="menuOpen"><img class="img-responsive" src="images/palette.png"></div>
-		<div id="menu" class="mobileHidden">
+
+		<div id="menu">
 			<!--Main Tools-->
 			<div id="toolsMenu">
-				<div class="mobileShow">
-					<div class="toolsDropdownButton inactive"><img class="img-responsive" src="images/pencil.png"></div>
-					<div class="filtersDropdownButton inactive"><img class="img-responsive" src="images/themes.png"></div>
-				</div>
-				<div class="toolsDropdown mobileHidden">
+				<div class="toolsDropdown">
 					<div class="toolButton pencilButton active"><img class="img-responsive" src="images/pencil.png"></div>
 					<div class="toolButton eraserButton"><img class="img-responsive" src="images/eraser.png"></div>
 					<div class="toolButton clearButton"><img class="img-responsive" src="images/clear.png"></div>
@@ -38,8 +32,7 @@
 			<!--Text Tools-->
 			<div id="textOptions">
 				<div class="textSizeContainer">
-
-					<div class="textSizeSlider"><input type="range" min="8" max="50" value="17" step="1" class="slider" id="textSize"></div>
+					<input type="range" value="17" step="1" class="slider" id="textSize">
 				</div>
 			</div>
 
@@ -61,12 +54,8 @@
 		</div>
 
         <!--Javascript Libraries-->
-		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-		<script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 		<script src="scripts/jscolor.min.js"></script>
-		
-
 		<script src="scripts/canvas-common.js"></script> 
 		<script src="scripts/undo.js"></script>
 		<script src="scripts/drawing-bezier.js"></script>
@@ -80,8 +69,6 @@
 		<script src="scripts/clear.js"></script>
 		<script src="scripts/download.js"></script>
 		<script src="scripts/canvas-configuration.js"></script>
-
-
 
 		<script type='text/javascript'>    
 			//Initialize Canvas 

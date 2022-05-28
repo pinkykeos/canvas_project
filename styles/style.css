@@ -38,9 +38,6 @@ hr {
 	display: flex;
 	justify-content: center;
 }
-.mobileShow {
-	display: none;
-}
 .btn {
 	border-radius: 20%;
 	padding: 5px;
@@ -87,7 +84,6 @@ hr {
 	display: none;
 	z-index: 15;
 }
-/*Inactive toolbar on desktop mode section*/
 .inactive {
 	background: rgb(200,200,200);
 	margin: 5px 0 0 5px;
@@ -148,8 +144,6 @@ canvas {
 	touch-action: none;
 	-ms-touch-action:none;
 	-webkit-touch-action:none;
-}
-#canvas-real, #canvas-draft {
 }
 
 /*Text settings styles*/
