@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -34,21 +33,20 @@
 					<div class="toolButton downloadButton"><img class="img-responsive" src="images/download.png"></div>
 			</div>
 			
-			<hr class="mobileHidden">
+	
 			<!--Text Tools-->
 			<div id="textOptions">
 				<div class="textSizeContainer">
-					<div class="showTextSize">17</div>
+
 					<div class="textSizeSlider"><input type="range" min="8" max="50" value="17" step="1" class="slider" id="textSize"></div>
 				</div>
-				<hr class="mobileHidden">
 			</div>
 
 			<!--Color Palette-->
 			<div id="colorPalette">
-				<p class="mobileHidden">Stroke</p>
+				<p>Stroke</p>
 				<input type="button" class="jscolor colorButton" value="#000000" onchange="canvasSettings.changeStroke(this.jscolor)" id="colorStroke"></input>
-				<p class="mobileHidden">Fill</p>
+				<p>Fill</p>
 				<input type="button" class="jscolor colorButton" value="#ffffff" onchange="canvasSettings.changeFill(this.jscolor)" id="colorFill"></input>
 			</div>
 			</div>
@@ -67,11 +65,9 @@
 		<script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
 		<script src="scripts/jscolor.min.js"></script>
 		
-		<!--Mother Script-->
+
 		<script src="scripts/canvas-common.js"></script> 
 		<script src="scripts/undo.js"></script>
-
-		<!--Functions Scripts-->
 		<script src="scripts/drawing-bezier.js"></script>
 		<script src="scripts/drawing-line.js"></script>
 		<script src="scripts/drawing-rectangle.js"></script>
@@ -79,15 +75,11 @@
 		<script src="scripts/drawing-triangle.js"></script>
 		<script src="scripts/drawing-eraser.js"></script>
 		<script src="scripts/drawing-text.js"></script>
-		<script src="scripts/find-color.js"></script>
-		<script src="scripts/open-file.js"></script>
 		<script src="scripts/clear.js"></script>
 		<script src="scripts/download.js"></script>
+		<script src="scripts/canvas-configuration.js"></script>
 
-		<!--Control Scripts-->
-		<script src="scripts/canvas-configuration.js"></script> <!--Testing this script-->
-		<script src="scripts/drawing-filter.js"></script>
-		<script src="scripts/drawing-clear.js"></script>
+
 
 		<script type='text/javascript'>    
 			//Initialize Canvas 
