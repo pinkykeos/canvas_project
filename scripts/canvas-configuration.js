@@ -16,6 +16,7 @@ var canvasSettings = {
     rectangleButton: DrawingRectangle,
     circleButton: DrawingEllipse,
     triangleButton: DrawingTriangle,
+    halfcircleButton: Drawinghalfcircle,
     clearButton: clear,
     eraserButton: DrawingEraser,
     textButton: DrawingText,
