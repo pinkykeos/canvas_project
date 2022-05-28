@@ -49,7 +49,6 @@ class DrawingEllipse extends PaintFunction{
     this.contextReal.beginPath();
     this.contextReal.arc(this.origX, this.origY, radius, 0, Math.PI * 2);
     this.contextReal.fill();
-    this.contextReal.strokeStyle = "#4DC788";
     this.contextReal.stroke();
     this.onFinish();
   }
