@@ -21,13 +21,9 @@ var canvasSettings = {
     eraserButton: DrawingEraser,
     textButton: DrawingText,
     downloadButton: download,
-    //Canvas Filter
-    filterImage: function(){},
     //Admin Functions 
     downloadCanvas : function(){},
     clearCanvas: function(){},
-    //Bug Fix functions
-    clearText: function(){},
     //Undo Function Object
     undoObject: {
         actionCount: 0,
@@ -58,8 +54,6 @@ document.onkeydown = canvasSettings.keyPress;
 
 //Change Tool
 $('body').on("click",".toolButton", function(){
-    //Bug fix
-    canvasSettings.clearText();
     // Undo eraser and clear all effect
     contextReal.globalCompositeOperation="source-over";
     //Assign function on click

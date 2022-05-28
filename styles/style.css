@@ -12,7 +12,7 @@ div {
 p {
 	margin: 0;
 	color: #ffffff;
-	font-family: 'Metrophobic', sans-serif;
+	font-family: 'arial', sans-serif;
 }
 hr {
 	width: 50%;
@@ -153,54 +153,8 @@ canvas {
 	flex-wrap: wrap;
 	justify-content: center;
 }
-#textFont {
-	font-size: 12px;
-}
-.textSizeContainer{
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 10px;
-}
-.showTextSize {
-	margin-bottom: 10px;
-	border-radius: 20%;
-	background: rgb(204,204,204);
-	font-size: 15px; /*Default*/
-	font-family: "Arial";
-	height: 55px;
-	width: 55px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-#textSize {
-	width: 50px;
-}
-/*Brush Size styles*/
-#sizeMenu {
-	width: 100%;
-	padding: 5px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-.showSize {
-	margin-bottom: 10px;
-	border-radius: 20%;
-	background: rgb(204,204,204);
-	font-size: 3px;
-	height: 55px;
-	width: 55px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.sizeImage {
-	border-radius: 50%;
-	background: rgb(97, 44, 44);
-	height: 5px; /*Default values*/
-	width: 5px; /*Default values*/
-}
+
+
 /*Color Palette styles*/
 #colorPalette {
 	margin: 10px auto;
